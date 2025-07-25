@@ -1,11 +1,13 @@
-﻿/*
+﻿// TODO: make configurable
+
+/*
 using System;
 using System.Linq;
 using HarmonyLib;
 
-namespace Utilla.HarmonyPatches.Patches
+namespace Utilla.Patches
 {
-    [HarmonyPatch(typeof(NetworkSystemPUN), "get_lowestPingRegionIndex"), HarmonyWrapSafe]
+    [HarmonyPatch(typeof(NetworkSystemPUN), "get_lowestPingRegionIndex"), HarmonyWrapSafe, HarmonyPriority(Priority.Low)]
     internal class MatchmakingRegionPatch
     {
         public static bool Prefix(ref int __result, NetworkRegionInfo[] ___regionData)

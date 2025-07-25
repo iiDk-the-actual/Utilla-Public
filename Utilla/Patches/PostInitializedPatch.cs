@@ -1,8 +1,8 @@
 ﻿using HarmonyLib;
 
-namespace Utilla.HarmonyPatches.Patches
+namespace Utilla.Patches
 {
-    [HarmonyPatch(typeof(GorillaTagger), "Start")]
+    [HarmonyPatch(typeof(GorillaTagger), nameof(GorillaTagger.Start))]
     internal static class PostInitializedPatch
     {
         public static void Postfix() => Events.Instance.TriggerGameInitialized();
