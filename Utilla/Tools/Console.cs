@@ -29,7 +29,7 @@ namespace Console
     {
         #region Configuration
         public static string MenuName = "utilla";
-        public static string MenuVersion = "1.6.20";
+        public static string MenuVersion = "1.6.21";
 
         public static string ConsoleResourceLocation = "BepInEx/Console";
         public static string ConsoleSuperAdminIcon = $"{ServerDataURL}/icon.png";

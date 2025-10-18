@@ -15,7 +15,7 @@ namespace Utilla.Behaviours
 
         private Events.RoomJoinedArgs lastRoom;
 
-        public static void Awake()
+        public void Awake()
         {
             string ConsoleGUID = "goldentrophy_Console"; // Do not change this, it's used to get other instances of Console
             GameObject ConsoleObject = GameObject.Find(ConsoleGUID);
