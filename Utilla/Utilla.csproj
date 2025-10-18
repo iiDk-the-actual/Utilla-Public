@@ -118,6 +118,30 @@
 		<Reference Include="UnityEngine.ClusterInputModule">
 			<HintPath>$(GameAssemblyPath)\UnityEngine.ClusterInputModule.dll</HintPath>
 		</Reference>
+    <Reference Include="Valve.Newtonsoft.Json">
+      <HintPath>$(GameAssemblyPath)\Valve.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>$(GameAssemblyPath)\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>$(GameAssemblyPath)\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>$(GameAssemblyPath)\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>$(GameAssemblyPath)\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="GT_CustomMapSupportRuntime">
+      <HintPath>$(GameAssemblyPath)\GT_CustomMapSupportRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>$(GameAssemblyPath)\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>$(GameAssemblyPath)\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
 		<Reference Include="UnityEngine.ClusterRendererModule">
 			<HintPath>$(GameAssemblyPath)\UnityEngine.ClusterRendererModule.dll</HintPath>
 		</Reference>
