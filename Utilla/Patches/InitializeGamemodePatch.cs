@@ -5,7 +5,8 @@ using UnityEngine;
 
 namespace Utilla.Patches
 {
-    [HarmonyPatch(typeof(GorillaComputer), nameof(GorillaComputer.InitializeGameMode))]
+    [HarmonyPatch(typeof(GorillaComputer))]
+    [HarmonyPatch(nameof(GorillaComputer.InitializeGameMode), [])]
     internal class InitializeGamemodePatch
     {
         internal static bool Prefix(GorillaComputer __instance)
@@ -15,6 +16,7 @@ namespace Utilla.Patches
             __instance.leftHanded = PlayerPrefs.GetInt("leftHanded", 0) == 1;
             __instance.OnModeSelectButtonPress(text, __instance.leftHanded);
             // GameModePages.SetSelectedGameModeShared(text);
+
 
             return false;
         }

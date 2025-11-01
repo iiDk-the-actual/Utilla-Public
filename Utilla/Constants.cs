@@ -1,13 +1,15 @@
 ﻿namespace Utilla
 {
-    internal class Constants
+    public class Constants
     {
-        public const string GUID = "org.legoandmars.gorillatag.utilla";
+        internal const string GUID = "org.legoandmars.gorillatag.utilla";
 
-        public const string Name = "Utilla";
+        internal const string Name = "Utilla";
 
         public const string Version = "1.6.21";
 
         public const string GamemodePrefix = "MODDED_";
+
+        internal const string InfoRepositoryURL = "https://raw.githubusercontent.com/developer9998/Utilla-Info/main";
     }
 }

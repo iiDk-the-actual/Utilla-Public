@@ -8,7 +8,7 @@ using Utilla.Tools;
 namespace Utilla
 {
     [BepInPlugin(Constants.GUID, Constants.Name, Constants.Version)]
-    public class Plugin : BaseUnityPlugin
+    internal class Plugin : BaseUnityPlugin
     {
         public static new ManualLogSource Logger;
 
@@ -25,7 +25,8 @@ namespace Utilla
         {
             Logging.Message("PostInitialized");
 
-            new GameObject(Constants.Name, typeof(UtillaNetworkController), typeof(GamemodeManager));
+            GameObject gameObject = new($"{Constants.Name} {Constants.Version}", typeof(UtillaNetworkController), typeof(GamemodeManager), typeof(ConductBoardManager));
+            DontDestroyOnLoad(gameObject);
         }
     }
 }

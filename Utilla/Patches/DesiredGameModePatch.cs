@@ -17,6 +17,7 @@ namespace Utilla.Patches
 
             Logging.Info($"{joinTriggerType.Name}.{nameof(GorillaNetworkJoinTrigger.GetDesiredGameType)}");
 
+            // TODO: check whether this hardcoded check is necessary
             if (joinTriggerType == typeof(GorillaNetworkRankedJoinTrigger))
             {
                 Logging.Message($"Ranked JoinTrigger resorting to hardcoded infection mode");
