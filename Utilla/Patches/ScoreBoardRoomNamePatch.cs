@@ -2,23 +2,22 @@
 using Utilla.Models;
 using Utilla.Utils;
 
-namespace Utilla.Patches;
-
-[HarmonyPatch(typeof(GorillaScoreBoard), nameof(GorillaScoreBoard.RoomType))]
-[HarmonyPriority(Priority.VeryHigh)]
-internal class ScoreBoardRoomNamePatch
+namespace Utilla.Patches
 {
-    public static bool Prefix(ref string __result)
+    [HarmonyPatch(typeof(GorillaScoreBoard), nameof(GorillaScoreBoard.RoomType)), HarmonyPriority(Priority.VeryHigh)]
+    internal class ScoreBoardRoomNamePatch
     {
-        Gamemode gamemode = GameModeUtils.CurrentGamemode;
-
-        if (gamemode != null)
+        public static bool Prefix(ref string __result)
         {
-            __result = gamemode.DisplayName.ToUpper();
+            Gamemode gamemode = GameModeUtils.CurrentGamemode;
 
-            return false;
+            if (gamemode != null)
+            {
+                __result = gamemode.DisplayName.ToUpper();
+                return false;
+            }
+
+            return true;
         }
-
-        return true;
     }
 }

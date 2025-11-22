@@ -6,10 +6,10 @@
 
         internal const string Name = "Utilla";
 
-        public const string Version = "1.6.22";
+        internal const string Version = "1.6.22";
 
         public const string GamemodePrefix = "MODDED_";
-
+        
         internal const string InfoRepositoryURL = "https://raw.githubusercontent.com/developer9998/Utilla-Info/main";
     }
 }

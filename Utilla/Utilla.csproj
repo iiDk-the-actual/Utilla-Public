@@ -139,6 +139,9 @@
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
       <HintPath>$(GameAssemblyPath)\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(GameAssemblyPath)\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
       <HintPath>$(GameAssemblyPath)\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>

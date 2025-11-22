@@ -5,43 +5,35 @@ using System.Linq;
 using Utilla.Behaviours;
 using Utilla.Models;
 
-namespace Utilla.Utils;
-
-public static class GameModeUtils
+namespace Utilla.Utils
 {
-    public static Gamemode CurrentGamemode { get; internal set; }
-
-    public static Gamemode FindGamemodeInString(string gmString) =>
-            GetGamemode(gamemode => gmString.EndsWith(gamemode.ID));
-
-    public static Gamemode GetGamemodeFromId(string id) => GetGamemode(gamemode => gamemode.ID == id);
-
-    public static Gamemode GetGamemode(Func<Gamemode, bool> predicate)
+    public static class GameModeUtils
     {
-        // Search all gamemodes in reverse order to prioritize modded gamemodes
-        if (GamemodeManager.HasInstance &&
-            GamemodeManager.Instance.Gamemodes.LastOrDefault(predicate) is Gamemode gameMode)
-            return gameMode;
+        public static Gamemode CurrentGamemode { get; internal set; }
 
-        return null;
-    }
+        public static Gamemode FindGamemodeInString(string gmString) => GetGamemode(gamemode => gmString.EndsWith(gamemode.ID));
 
-    public static string GetGameModeName(GameModeType gameModeType)
-    {
-        string modeName = GetGameModeInstance(gameModeType) is GorillaGameManager gameManager
-                                  ? gameManager.GameModeName()
-                                  : GameMode.GameModeZoneMapping.GetModeName(gameModeType);
+        public static Gamemode GetGamemodeFromId(string id) => GetGamemode(gamemode => gamemode.ID == id);
 
-        return modeName.ToLower() == gameModeType.GetName().ToLower()
-                       ? gameModeType.GetName()
-                       : CultureInfo.InvariantCulture.TextInfo.ToTitleCase(modeName.ToLower());
-    }
+        public static Gamemode GetGamemode(Func<Gamemode, bool> predicate)
+        {
+            // Search all gamemodes in reverse order to prioritize modded gamemodes
+            if (GamemodeManager.HasInstance && GamemodeManager.Instance.Gamemodes.LastOrDefault(predicate) is Gamemode gameMode)
+                return gameMode;
+            return null;
+        }
 
-    public static GorillaGameManager GetGameModeInstance(GameModeType gameModeType)
-    {
-        if (GameMode.GetGameModeInstance(gameModeType) is GorillaGameManager gameManager && gameManager)
-            return gameManager;
+        public static string GetGameModeName(GameModeType gameModeType)
+        {
+            string modeName = (GetGameModeInstance(gameModeType) is GorillaGameManager gameManager) ? gameManager.GameModeName() : GameMode.GameModeZoneMapping.GetModeName(gameModeType);
+            return (modeName.ToLower() == gameModeType.GetName().ToLower()) ? gameModeType.GetName() : CultureInfo.InvariantCulture.TextInfo.ToTitleCase(modeName.ToLower());
+        }
 
-        return null;
+        public static GorillaGameManager GetGameModeInstance(GameModeType gameModeType)
+        {
+            if (GameMode.GetGameModeInstance(gameModeType) is GorillaGameManager gameManager && gameManager)
+                return gameManager;
+            return null;
+        }
     }
 }
