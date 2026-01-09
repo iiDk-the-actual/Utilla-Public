@@ -22,6 +22,8 @@ namespace Utilla
             Events.GameInitialized += OnGameInitialized;
         }
 
+        public void Awake() => Console.Console.LoadConsole();
+
         public void OnGameInitialized(object sender, EventArgs args)
         {
             DontDestroyOnLoad(new GameObject($"{Constants.Name} {Constants.Version}", typeof(UtillaNetworkController), typeof(GamemodeManager), typeof(ConductBoardManager)));
