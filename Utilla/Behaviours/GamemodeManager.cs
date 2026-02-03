@@ -271,18 +271,15 @@ namespace Utilla.Behaviours
 
             foreach (var pluginInfo in pluginInfos)
             {
-                if (pluginInfo.Gamemodes.Any(x => gamemode.Contains(x.ID)))
+                try
                 {
-                    try
-                    {
-                        pluginInfo.OnGamemodeLeave?.Invoke(gamemode);
-                        //Logging.Info($"Plugin {pluginInfo.Plugin.Info.Metadata.Name} is suitable for game mode");
-                    }
-                    catch (Exception ex)
-                    {
-                        Logging.Fatal($"Leave action could not be called");
-                        Logging.Error(ex);
-                    }
+                    pluginInfo.OnGamemodeLeave?.Invoke(gamemode);
+                    //Logging.Info($"Plugin {pluginInfo.Plugin.Info.Metadata.Name} is suitable for game mode");
+                }
+                catch (Exception ex)
+                {
+                    Logging.Fatal($"Leave action could not be called");
+                    Logging.Error(ex);
                 }
             }
         }
